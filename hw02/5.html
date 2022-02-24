@@ -34,28 +34,60 @@ Infinity делать не нужно, однако, в случае если б
 	<script>
 		"use strict";
 
+		/**
+		 * создаем две переменные для ввода чисел*/
+
 		let numberOne = +prompt('Введите первое число');
 		let numberTwo = +prompt('Введите второе число');
 
+		/**
+		 * @function 
+		 * @name sum
+		 * функция складывает два числа*/
 		function sum() {
 			return numberOne + numberTwo;
 		}
 
+		/**
+		 * @function 
+		 * @name difference
+		 * функция вычитает из одного числа другое, при это надо выбрать 
+		 * какое число больше и вычесть из большего меньшее*/
 		function difference() {
-			if (Math.max(numberOne) > Math.max(numberTwo))
+			if (numberOne > numberTwo)
 				return numberOne - numberTwo;
 			else
 				return numberTwo - numberOne;
 		}
 
+		/**
+		 * @function 
+		 * @name multiplication 
+		 * функция умножает числа*/
 		function multiplication() {
 			return numberOne * numberTwo;
 		}
 
+		/**
+		 * @function 
+		 * @name division 
+		 * функция делит одно число на другое*/
 		function division() {
 			return numberOne / numberTwo;
 		}
 
+		/**
+		 * @function 
+		 * @name mathOperation 
+		 * функция принимает два числа из переменных выше, кладет их в
+		 * @constant
+		 * @type {number} arg 1 - константа numberOne
+		 * @type {number} arg 2 - константа numberTwo
+		 * @type {string} operation - пользователь выбирает какой символ ему
+		 * вводить.
+		 * далее выполняется условие для каждого из знаков и вызывается
+		 * одна из функций выше
+		 * если символ введен не верный, возвращается NaN*/
 		function mathOperation() {
 			let arg1 = numberOne;
 			let arg2 = numberTwo;

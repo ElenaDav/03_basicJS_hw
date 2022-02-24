@@ -34,49 +34,53 @@
 		"use strict";
 
 		/**
-		 * создаем две переменные для ввода пользователем чисел
-		 * @param sum - возвращет сумму двух введенных чисел.
-		 * выводим в консоль результат.
-		 * 
-		 * @param difference - возвращает разницу между двумя введенными числами.
-		 * при этом мы проверяем какое из чисел больше и после этого
-		 * делаем вычитание.
-		 * в консоль выводим результат.
-		 * 
-		 * @param multiplication - возвращает сумму произведения двух чисел.
-		 * в консоль выводит результат/
-		 * 
-		 * @param division - возвращает деление двух чисел.
-		 * в консоль выводит результат.
-		 * 
-		 * можно сделать возможность вводить для каждого вычисления свои переменные
-		 * как вариант, тогда надо будет изменить названия переменных.
-		 */
+	 * создаем две переменные для ввода чисел
+	 * @type {number} numberOne - пользователь вводит первое число
+	 * @type {number} numberTwo - пользователь вводит второе число
+	 * */
 
 		let numberOne = +prompt('Введите первое число');
 		let numberTwo = +prompt('Введите второе число');
 
+		/**
+		 * @function 
+		 * @name sum
+		 * функция складывает два числа*/
 		function sum() {
 			return numberOne + numberTwo;
 		}
-		console.log(sum());
 
+		/**
+		 * @function 
+		 * @name difference
+		 * функция вычитает из одного числа другое, при это надо выбрать 
+		 * какое число больше и вычесть из большего меньшее*/
 		function difference() {
-			if (Math.max(numberOne) > Math.max(numberTwo))
+			if (numberOne > numberTwo)
 				return numberOne - numberTwo;
 			else
 				return numberTwo - numberOne;
 		}
-		console.log(difference());
 
+		/**
+		 * @function 
+		 * @name multiplication 
+		 * функция умножает числа*/
 		function multiplication() {
 			return numberOne * numberTwo;
 		}
-		console.log(multiplication());
 
+		/**
+		 * @function 
+		 * @name division 
+		 * функция делит одно число на другое*/
 		function division() {
 			return numberOne / numberTwo;
 		}
+
+		console.log(sum());
+		console.log(difference());
+		console.log(multiplication());
 		console.log(division());
 
 	</script>
