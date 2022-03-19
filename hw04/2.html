@@ -51,26 +51,49 @@
 -->
 	<script>
 		"use strict";
+		// ----------------- function PostES5
 
 		function PostES5(name, post, date) {
 			this.name = name;
 			this.post = post;
-			this.date = date;
-			//this.time = time;
+			this.date = new Date();
 		}
-		/*Данные автора поста и текст поста необходимо передавать при создании
-	экземпляра объекта.
-	Каждому экземпляру объекта должен быть доступен метод `edit`, который будет
-	менять текст поста.*/
-		PostES5.prototype.edit = function () {
-			//if post change
-			if this.post
-			//change date
+		// function for changing post and date
+		PostES5.prototype.edit = function (post) {
+			this.post = post;
+			this.date = new Date();
 		};
-		const postES5 = new PostES5('Inna', 'text for post', '25.05.2021 11:00');
+
+		const postES5 = new PostES5('Inna', 'text for post');
 		console.log(postES5);
-		postES5.edit();
-		console.log(postES5);
+		// function for delay of time
+		setTimeout(() => {
+			postES5.edit('new text for post at 21.55');
+			console.log(postES5);
+		}, 1000);
+
+
+		// --------------- function AttachedPostES5
+
+		function AttachedPostES5(name, post) {
+			PostES5.call(this, name, post);
+			this.highlighted = false;
+		}
+		//Inheriting properties AttachedPostES5 through PostES5
+		AttachedPostES5.prototype = Object.create(PostES5.prototype);
+		AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+		// function for highlighted our text 
+		AttachedPostES5.prototype.makeTextHighlighted = function () {
+			this.highlighted = true;
+			this.date = new Date();
+		};
+
+		const attachedPostES5 = new AttachedPostES5('Inna', 'Inna change this post');
+		console.log(attachedPostES5);
+		attachedPostES5.makeTextHighlighted();
+		console.log(attachedPostES5);
+
 	</script>
 </body>
 
