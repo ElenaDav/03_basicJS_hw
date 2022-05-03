@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Homework</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
 </head>
 
 <body>
-	<!--
+  <!--
 Обязательное задание.
 
 Необходимо реализовать четыре функции, каждая функция должна принимать по два
@@ -30,64 +30,64 @@
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-	<script>
-		"use strict";
+  <script>
+    "use strict";
 
-		/**
-	 * создаем две переменные для ввода чисел
-	 * @type {number} numberOne - пользователь вводит первое число
-	 * @type {number} numberTwo - пользователь вводит второе число
-	 * */
+    /**
+     * функция складывает два числа
+     * @param {number} numberOne - принимает первое число
+     * @param {number} numberTwo - принимает второе число
+     * @return {number} - возвращает результат
+     */
+    function sum(numberOne, numberTwo) {
+      return numberOne + numberTwo;
+    }
 
-		let numberOne = +prompt('Введите первое число');
-		let numberTwo = +prompt('Введите второе число');
+    /**
+     * функция вычитает из одного числа другое, при это надо выбрать 
+     * какое число больше и вычесть из большего меньшее
+     * @param {number} numberOne - принимает первое число
+     * @param {number} numberTwo - принимает второе число
+     * @return {number} - возвращает одно из условий результата
+     */
+    function difference(numberOne, numberTwo) {
+      if (numberOne > numberTwo) {
+        return numberOne - numberTwo;
+      }
+      return numberTwo - numberOne;
+    }
+    /* проще можно так написать
+    function difference(numberOne, numberTwo) {
+        return Math.abs(numberOne - numberTwo);
+    }
+    */
 
-		/**
-		 * @function 
-		 * @name sum
-		 * функция складывает два числа
-		 * @return {number} - возвращает результат*/
-		function sum() {
-			return numberOne + numberTwo;
-		}
+    /**
+     * функция умножает числа
+     * @param {number} numberOne - принимает первое число
+     * @param {number} numberTwo - принимает второе число
+     * @return {number} - возвращает результат
+     */
+    function multiplication(numberOne, numberTwo) {
+      return numberOne * numberTwo;
+    }
 
-		/**
-		 * @function 
-		 * @name difference
-		 * функция вычитает из одного числа другое, при это надо выбрать 
-		 * какое число больше и вычесть из большего меньшее
-		 * @return {number} - возвращает одно из условий результата*/
-		function difference() {
-			if (numberOne > numberTwo)
-				return numberOne - numberTwo;
-			else
-				return numberTwo - numberOne;
-		}
+    /**
+     * функция делит одно число на другое
+     * @param {number} numberOne - принимает первое число
+     * @param {number} numberTwo - принимает второе число
+     * @return {number} - возвращает результат
+     */
+    function division(numberOne, numberTwo) {
+      return numberOne / numberTwo;
+    }
 
-		/**
-		 * @function 
-		 * @name multiplication 
-		 * функция умножает числа
-		 * @return {number} - возвращает результат*/
-		function multiplication() {
-			return numberOne * numberTwo;
-		}
+    console.log(sum(4, 8));
+    console.log(difference(3, 9));
+    console.log(multiplication(10, 15));
+    console.log(division(2, 45).toFixed(2));
 
-		/**
-		 * @function 
-		 * @name division 
-		 * функция делит одно число на другое
-		 * @return {number} - возвращает результат*/
-		function division() {
-			return numberOne / numberTwo;
-		}
-
-		console.log(sum());
-		console.log(difference());
-		console.log(multiplication());
-		console.log(division());
-
-	</script>
+  </script>
 </body>
 
 </html>

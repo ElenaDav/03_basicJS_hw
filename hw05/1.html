@@ -90,7 +90,7 @@
 		data-number со значением 50 и вывести его в консоль.
 		 */
 
-		//const dataNumber = document.getA('data-number');
+		//const dataNumber = document.getAttri('data-number');
 
 		//console.log(dataNumber);
 
@@ -112,20 +112,13 @@
 		 */
 
 		// Create element:
-		//const cardEl7 = document.querySelector('card');
+		const cardEl7 = document.querySelector('card');
 		const pEl = document.createElement('p');
 		pEl.textContent = "Привет";
 
 		// // Append to body:
 		document.body.appendChild(pEl);
-
-		// let li = document.createElement('li');
-		// let inner = document.createElement('div');
-		// inner.textContent = 'Hi';
-		// li.appendChild(inner);
-
-		// чтобы сниппент что-нибудь отобразил
-		//document.body.appendChild(li);
+		//cardEl7.append(pEl);
 
 		/*
 		8. Удалите тег h6 на странице.
