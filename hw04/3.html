@@ -33,20 +33,31 @@
   <script>
     "use strict";
 
-    function getDigitsOfNumber(userNumber) {
-      // для вычисления используем оператор остаток от деления %
-      // для единиц
-      const units = userNumber % 10;
-      //для десяток сначала отбрасываем единицы путем деления на 10, затем вычисляем остаток
-      const tens = Math.trunc(userNumber / 10) % 10;
-      // далее вычисляем сотни отбрасывая единицы и десятки, поделив число на 100
-      const hunders = Math.trunc(userNumber / 100) % 10;
+    /**
+     * Функция разбивает число на разряды/
+     * @param {number} userNumber - Целое число [0, 999]
+     * @returns {object} Объекты с разрядом или пустой
+     */
+
+    function getDigitsOfNumber (userNumber) {
+      if (!Number.isInteger(userNumber) || userNumber < 0 || userNumber > 999) {
+        console.error('ERROR! Wrong argument, it must be number of 0 to 999!')
+        return {};
+      }
+      return {
+        // для вычисления используем оператор остаток от деления %
+        // для единиц
+        units: userNumber % 10,
+        //для десяток сначала отбрасываем единицы путем деления на 10, затем вычисляем остаток
+        tens: Math.trunc(userNumber / 10) % 10,
+        // далее вычисляем сотни отбрасывая единицы и десятки, поделив число на 100
+        hunders: Math.trunc(userNumber / 100) % 10,
+      };
     }
 
-    console.log(getDigitsOfNumber(userNumber(465)));
-
-    //console.log(`В числе ${ userNumber } количество сотен: ${ hunders }, десятков: ${ tens }, единиц: ${ units }.`);
-
+    console.log(getDigitsOfNumber(465));
+    console.log(getDigitsOfNumber('asdf'));
+    console.log(getDigitsOfNumber(1002));
 
     //console.info();
   </script>
