@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Homework</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
 </head>
 
 <body>
-	<!--
+  <!--
 Обязательное задание.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -49,52 +49,93 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-	<script>
-		"use strict";
-		// ----------------- function PostES5
+  <script>
+    "use strict";
+    // 1 task ----------------- function PostES5
 
-		function PostES5(name, post, date) {
-			this.name = name;
-			this.post = post;
-			this.date = new Date();
-		}
-		// function for changing post and date
-		PostES5.prototype.edit = function (post) {
-			this.post = post;
-			this.date = new Date();
-		};
+    function PostES5(name, post) {
+      this.name = name;
+      this.post = post;
+      this.date = new Date();
+    }
+    // function for changing post and date
+    PostES5.prototype.edit = function (post) {
+      this.post = post;
+      this.date = new Date();
+    };
 
-		const postES5 = new PostES5('Inna', 'text for post');
-		console.log(postES5);
-		// function for delay of time
-		setTimeout(() => {
-			postES5.edit('new text for post at 21.55');
-			console.log(postES5);
-		}, 1000);
+    const postES5 = new PostES5('Inna', 'text for post');
+    // console.log(postES5);
+    // function for delay of time
+    setTimeout(() => {
+      postES5.edit('new text for post at 21.55');
+      console.log(postES5);
+    }, 1000);
+
+    // 1 task ----------------- function PostES6
+
+    class PostES6 {
+      constructor(name, post) {
+        this.name = name;
+        this.post = post;
+        this.date = new Date();
+      }
+      edit(post) {
+        this.post = post;
+        this.date = new Date();
+      }
+    }
+
+    const postES6 = new PostES6('Inna', 'text for post');
+    console.log(postES6);
+    // function for delay of time
+    setTimeout(() => {
+      postES6.edit('new text for Irina`s post');
+      console.log(postES6);
+    }, 1000);
+
+    // 2 task --------------- function AttachedPostES5
+
+    function AttachedPostES5(name, post) {
+      PostES5.call(this, name, post);
+      this.highlighted = false;
+    }
+    //Inheriting properties AttachedPostES5 through PostES5
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    // function for highlighted our text 
+    AttachedPostES5.prototype.makeTextHighlighted = function (value) {
+      this.highlighted = true;
+      this.date = new Date();
+    };
+
+    const attachedPostES5 = new AttachedPostES5('Inna', 'text for post');
+    console.log(attachedPostES5);
+    attachedPostES5.edit('new text for Irina`s post');
+    console.log(attachedPostES5);
+    attachedPostES5.makeTextHighlighted();
+    console.log(attachedPostES5);
 
 
-		// --------------- function AttachedPostES5
+    // 2 task --------------- function AttachedPostES6
 
-		function AttachedPostES5(name, post) {
-			PostES5.call(this, name, post);
-			this.highlighted = false;
-		}
-		//Inheriting properties AttachedPostES5 through PostES5
-		AttachedPostES5.prototype = Object.create(PostES5.prototype);
-		AttachedPostES5.prototype.constructor = AttachedPostES5;
+    class AttachedPostES6 extends PostES6 {
+      highlighted = false;
 
-		// function for highlighted our text 
-		AttachedPostES5.prototype.makeTextHighlighted = function () {
-			this.highlighted = true;
-			this.date = new Date();
-		};
+      makeTextHighlighted(value) {
+        this.highlighted = true;
+        this.date = new Date();
+      }
+    }
 
-		const attachedPostES5 = new AttachedPostES5('Inna', 'Inna change this post');
-		console.log(attachedPostES5);
-		attachedPostES5.makeTextHighlighted();
-		console.log(attachedPostES5);
-
-	</script>
+    const attachedPostES6 = new AttachedPostES6('Inna', 'text for post');
+    console.log(attachedPostES6);
+    attachedPostES6.edit('new text for Irina`s post');
+    console.log(attachedPostES6);
+    attachedPostES6.makeTextHighlighted();
+    console.log(attachedPostES6);
+  </script>
 </body>
 
 </html>

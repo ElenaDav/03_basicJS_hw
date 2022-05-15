@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Homework</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
 </head>
 
 <body>
-	<!--
+  <!--
 Обязательное задание.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -19,42 +19,42 @@
 метод должен уменьшать стоимость продукта на 25%.
 Необходимо продемонстрировать работу с объектом (в свободной форме).
 -->
-	<script>
-		"use strict";
-		// ----------------------- style es5
+  <script>
+    "use strict";
+    // ----------------------- style es5
 
-		function ProductES5(name, price) {
-			this.name = name;
-			this.price = price;
-		}
+    function ProductES5(name, price) {
+      this.name = name;
+      this.price = price;
+    }
 
-		ProductES5.prototype.make25Discount = function () {
-			this.price *= 0.75;
-		};
+    ProductES5.prototype.make25Discount = function () {
+      this.price *= 0.75;
+    };
 
-		const name1 = new ProductES5('Apple', 45);
-		console.log(`This is an ${name1.name}, the price is ${name1.price} rubles`);
-		name1.make25Discount();
-		console.log(`Price of ${name1.name} with discount is ${name1.price} rubles`);
+    const name1 = new ProductES5('Apple', 45);
+    console.log(`This is an ${ name1.name }, the price is ${ name1.price } rubles`);
+    name1.make25Discount();
+    console.log(`Price of ${ name1.name } with discount is ${ name1.price } rubles`);
 
-		// ------------------------  style es6
+    // ------------------------  style es6
 
-		class ProductES6 {
-			constructor(name, price) {
-				this.name = name;
-				this.price = price;
-			}
-			make25Discount() {
-				this.price *= 0.75;
+    class ProductES6 {
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
+      }
 
-			}
-		}
-		const name2 = new ProductES6('Potatoes', 95);
-		console.log(`This is a ${name2.name}, the price is ${name2.price} rubles`);
-		name2.make25Discount();
-		console.log(`Price of ${name2.name} with discount is ${name2.price} rubles`);
+      make25Discount() {
+        this.price *= 0.75;
+      }
+    }
+    const name2 = new ProductES6('Potatoes', 95);
+    console.log(`This is a ${ name2.name }, the price is ${ name2.price } rubles`);
+    name2.make25Discount();
+    console.log(`Price of ${ name2.name } with discount is ${ name2.price } rubles`);
 
-	</script>
+  </script>
 </body>
 
 </html>
